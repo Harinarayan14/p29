@@ -99,8 +99,8 @@ function setup() {
 
   block66 = new Box1(1000,60,20,40);
   
-  stone = new Stone(200,200,50,50);
-  slingshot = new Slingshot(stone.body,{x:200,y:200});
+  stone = new Stone(200,400,50,50);
+  slingshot = new Slingshot(stone.body,{x:200,y:400});
 
 }
 
@@ -201,7 +201,7 @@ function draw() {
   
   if (keyCode === 32 ){
     
-  Matter.Body.setPosition(stone.body,{x:200,y:200});
+  Matter.Body.setPosition(stone.body,{x:200,y:400});
   slingshot.attach(stone.body);
   }
   
