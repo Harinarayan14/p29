@@ -198,7 +198,7 @@ function draw() {
   
   stone.display();
   slingshot.display();
-  
+  y =mouseX;
   
 }
 class Stone{
@@ -224,7 +224,7 @@ class Stone{
     }
 }
 function mouseDragged(){
-  if(gameState !== "play"){
+  if(gameState !== "play" && y< 210){
   Matter.Body.setPosition(stone.body,{x:mouseX,y:mouseY});
 }
 }
