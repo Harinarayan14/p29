@@ -200,6 +200,8 @@ function draw() {
   stone.display();
   slingshot.display();
   fill(255);
+  textSize(20);
+  strokeWeight(1);
   text("Tries:"+score,50,50)
   
 }
