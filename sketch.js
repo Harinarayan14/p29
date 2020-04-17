@@ -5,6 +5,7 @@ const Constraint = Matter.Constraint;
 
 var engine, world;
 var gameState = "start";
+var score = 0;
 
 
 function setup() {
@@ -198,7 +199,8 @@ function draw() {
   
   stone.display();
   slingshot.display();
-  y =mouseX;
+  fill(255);
+  text("Tries:"+score,50,50)
   
 }
 class Stone{
@@ -224,13 +226,14 @@ class Stone{
     }
 }
 function mouseDragged(){
-  if(gameState !== "play" && y< 210){
+  if(gameState !== "play"){
   Matter.Body.setPosition(stone.body,{x:mouseX,y:mouseY});
 }
 }
 function mouseReleased(){
   slingshot.fly();
   gameState = "play";
+  score++;
 }
 function keyPressed(){
   if (keyCode === 32 ){
