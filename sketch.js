@@ -4,7 +4,7 @@ const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
 var engine, world;
-var y = 0;
+var gameState = "start";
 
 
 function setup() {
@@ -199,11 +199,6 @@ function draw() {
   stone.display();
   slingshot.display();
   
-  if (keyCode === 32 ){
-    
-  Matter.Body.setPosition(stone.body,{x:200,y:400});
-  slingshot.attach(stone.body);
-  }
   
 }
 class Stone{
@@ -229,8 +224,19 @@ class Stone{
     }
 }
 function mouseDragged(){
+  if(gameState !== "play"){
   Matter.Body.setPosition(stone.body,{x:mouseX,y:mouseY});
+}
 }
 function mouseReleased(){
   slingshot.fly();
+  gameState = "play";
+}
+function keyPressed(){
+  if (keyCode === 32 ){
+    gameState = "start";
+    Matter.Body.setPosition(stone.body,{x:200,y:400});
+    slingshot.attach(stone.body);
+    }
+    
 }
