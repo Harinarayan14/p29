@@ -26,10 +26,12 @@ class Slingshot{
         
         var pointA = this.sling.bodyA.position;
         var pointB = this.pointB;
+        push();
         stroke(255);
         strokeWeight(10);
         line(pointA.x-25, pointA.y, pointB.x-10, pointB.y);
         line(pointA.x-25, pointA.y, pointB.x+30, pointB.y);
+        pop();
         
     }
     }
